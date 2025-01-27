@@ -1,5 +1,5 @@
 # region imports
-from Die import #JES MISSING CODE
+from Die import rollFairDie, rollUnFairDie # These imports the functions for this program
 # endregion
 
 # region functions
@@ -10,7 +10,11 @@ def rollDice(N=1):
     :param N: the number of dice to be rolled
     :return: the total score from rolling N dice
     """
-    #JES MISSING CODE
+    total = 0
+    for _ in range(N):
+        total += rollFairDie()
+    return total
+
     pass
 
 def rollUnFairDice(N=1):
@@ -20,7 +24,11 @@ def rollUnFairDice(N=1):
     :param N: the number of dice to be rolled
     :return: the total score from rolling N dice
     """
-    #JES MISSING CODE
+    total = 0
+    for _ in range(N):
+        total += rollUnFairDie()
+    return total
+
     pass
 
 # endregion

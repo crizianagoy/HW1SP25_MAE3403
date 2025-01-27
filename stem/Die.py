@@ -13,9 +13,23 @@ def rollFairDie():
     This function simulates rolling a fair die such that the probability of each integer is 1/6.
     :return: an integer between 1 and 6 inclusive
     """
-    x = #JES MISSING CODE  # should be a floating point number between 0.0 and 1.0
-    if x <= #JES MISSING CODE
+    from random import random
+    x = random ()    # This calls random number from 0 to 1
+    if x <= 1.0/6:      # This identifies what number was rolled
         return 1
+    elif x<= 2.0/6:
+        return 2
+    elif x<= 3.0/6:
+        return 3
+    elif x<= 4.0/6:
+        return 4
+    elif x <= 5.0 / 6:
+       return 5
+    else:
+        return 6
+
+
+
     #JES MISSING CODE
 
 def rollUnFairDie():
@@ -25,10 +39,19 @@ def rollUnFairDie():
     :return: an integer between 1 and 6 inclusive
     """
     p=0.3
-    x=#JES MISSING CODE
-    if x <= #JES MISSING CODE
-        return 1
-    #JES MISSING CODE
+    x = random()  # This calls random number from 0 to 1
+    if x <= 1.0 / 6:       # This identifies what number was rolled
+        return 2
+    elif x <= 2.0 / 6:
+        return 2
+    elif x <= 3.0 / 6:
+        return 3
+    elif x <= 4.0 / 6:
+      return 4
+    elif x <= 5.0 / 6:
+       return 5
+    else:
+     return 6
 # endregion
 
 # The if statement below is known as: main guarding

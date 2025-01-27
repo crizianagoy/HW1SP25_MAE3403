@@ -13,7 +13,14 @@ def between(num, low, high, inclusivelow=True, inclusivehigh=True):
     :param inclusivehigh: bool to include the high end
     :return: bool indicating if between low and high limits
     """
-    # $JES MISSING CODE
+    if inclusivelow and inclusivehigh:          # This checks if number is both bounds are inclusive
+        return low <= num <= high
+    elif inclusivelow and not inclusivehigh:    # This checks if number is low bound inclusive but high bond is exclusive
+        return low <= num <= high
+    elif not inclusivelow and inclusivehigh:    # This checks if number is low bound exclusive but high bond is inclusive
+        return low < num <= high
+    else:                                       # This checks if number is both bounds are inclusive
+        return low < num <high
     pass
 
 
@@ -28,29 +35,35 @@ def main():
     2 & 3.  A number in bin3 will not necessarily be in 1 or 2.
     :return: nothing
     """
-    N = # $JES MISSING CODE  # size of array I want
+    N = 1000  # size of array I want
     arr = []  # array for storing the numbers
-    mean = # $JES MISSING CODE  # the mean I want
-    stdev = # $JES MISSING CODE  # the standard deviation
+    mean =  0  # the mean I want
+    stdev = 1  # the standard deviation
 
     bin1=0  # normal dist should contain 68% within +/-1stdev
     bin2=0  # normal dist should contain 95.5% within +/-2stdev
     bin3=0  # normal dist should contain 99.7% within +/-3stdev
 
     # find edges of the limits for the various bins
-    bin1low = # $JES MISSING CODE
-    bin1high = # $JES MISSING CODE
+    bin1low = mean - stdev
+    bin1high =  mean + stdev
 
-    bin2low = # $JES MISSING CODE
-    bin2high = # $JES MISSING CODE
+    bin2low =  mean - 2 * stdev
+    bin2high = mean + 2 * stdev
 
-    bin3low = # $JES MISSING CODE
-    bin3high = # $JES MISSING CODE
+    bin3low = mean - 3 * stdev
+    bin3high = mean + 3 * stdev
 
     for i in range(N):  # this loop generates the numbers
-        arr.append(# $JES MISSING CODE)
+        num = rnd.gauss(mean, stdev)        # This generates a number from a normal distribution
+        arr.append(num)                     # This adds number to the array
         # this checks which bin(s) the current number is in.
-        # $JES MISSING CODE
+        if between(num, bin1low, bin1high):         # This check if it is within 1 standard deviation
+            bin1 += 1
+        if between(num, bin2low, bin2high):         # This check if it is within 2 standard deviation
+            bin2 += 1
+        if between(num, bin3low, bin3high):         # This check if it is within 3 standard deviation
+            bin3 += 1
 
     #print(arr)  # If I want to see the actual array, uncomment this.
     print("{:.1f}% of data within +/-1 StDev of mean.".format(100*bin1/N))
