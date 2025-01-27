@@ -29,7 +29,7 @@ def main2():  # main function to roll nDice unfair dice nRolls times and output 
     each possible score based on P(7)=nTally/nRolls, where nTally is number times I roll a 7, for example.
     :return: nothing
     """
-    nDice = 3  # number of dice
+    nDice = 5  # number of dice
     nMinScore = nDice   # total score if each die scores 1
     nMaxScore = 6 * nDice   # total score if each die scores 6
     nNumScores = nMaxScore - nMinScore + 1 # number of possible scores
